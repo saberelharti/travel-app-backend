@@ -1,0 +1,50 @@
+<mat-card-title fxLayoutAlign="center">
+  Se Connecter
+</mat-card-title>
+<mat-card-content fxLayout="column"
+                  fxLayoutAlign="center center">
+  <form
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    fxLayoutGap="10px"
+    [style.fontSize.px]="20"
+    [formGroup]="loginForm"
+    (ngSubmit)="onLogin()"
+  >
+    <mat-form-field>
+      <input
+        type="email"
+        matInput
+        placeholder="Email"
+        formControlName="email"
+      />
+      <mat-error *ngIf="loginForm.get('email').hasError('required')">
+        Votre email est requis.
+      </mat-error>
+      <mat-error *ngIf="!loginForm.get('email').hasError('required')">
+        Veuillez entrer un email valide.
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input
+        type="password"
+        matInput
+        placeholder="Mot de Passe"
+        formControlName="password"
+      />
+      <mat-error *ngIf="loginForm.get('password').hasError('required')">Votre mot de passe est requis.</mat-error>
+    </mat-form-field>
+    <button type="submit"
+            mat-raised-button
+            color="primary"
+            [disabled]="loginForm.invalid"
+            *ngIf="!(isLoading$ | async)"
+    >
+      Se Connecter
+    </button>
+    <mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
+  </form>
+</mat-card-content>
+<p>Vous n'avez pas de compte?</p>
+<button mat-button color="accent" (click)="onNewUser()">Rejoindre</button>
+

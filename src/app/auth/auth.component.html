@@ -1,0 +1,11 @@
+<div class="container">
+  <aside class="form" fxFlex="30" fxLayoutAlign="end center">
+    <mat-card fxFlex="100">
+      <app-login fxLayout="column" fxLayoutAlign="center center" *ngIf="!(isNewUser$ | async)"></app-login>
+      <app-register fxLayout="column" fxLayoutAlign="center center" *ngIf="isNewUser$ | async"></app-register>
+    </mat-card>
+  </aside>
+  <main class="main" fxFlex="70">
+
+  </main>
+</div>

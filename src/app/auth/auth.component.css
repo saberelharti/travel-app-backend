@@ -1,0 +1,15 @@
+.container{
+  height: 100%
+}
+
+main{
+  background-color: #3f51b5;
+}
+
+aside {
+  background-color: #fafafa;
+}
+
+mat-card{
+  right: -80px;
+}
